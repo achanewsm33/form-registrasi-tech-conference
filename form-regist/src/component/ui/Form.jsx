@@ -69,7 +69,7 @@ export default function Form() {
                 </div>
             )}
 
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 px-5 text-start w-full">
+            <form onSubmit={handleSubmit(onSubmit)} className="block px-5 text-start w-full">
                 {/* 1. Full Name */}
                 <div>
                     <label htmlFor="fullName" className="block mb-1 text-left">Nama Lengkap</label>
