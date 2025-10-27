@@ -77,7 +77,7 @@ export default function Form() {
                     id="fullName"
                     type="text"
                     {...register("fullName", { required: "Nama lengkap wajib diisi" })}
-                    className="w-full border px-3 py-1 rounded bg-white border-0"
+                    className="w-full px-3 py-1 rounded bg-white"
                     />
                     {errors.fullName && <p className="text-sm text-red-600 mt-1">{errors.fullName.message}</p>}
                 </div>
@@ -93,7 +93,7 @@ export default function Form() {
                     minLength: { value: 6, message: "Username minimal 6 karakter" },
                     maxLength: { value: 20, message: "Username maksimal 20 karakter" },
                     })}
-                    className="w-full border px-3 py-1 rounded bg-white border-0"
+                    className="w-full px-3 py-1 rounded bg-white"
                 />
                     {errors.username && <p className="text-sm text-red-600 mt-1">{errors.username.message}</p>}
                 </div>
@@ -108,7 +108,7 @@ export default function Form() {
                     required: "Email wajib diisi",
                     pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Format email tidak valid" },
                     })}
-                    className="w-full border px-3 py-1 rounded bg-white border-0"
+                    className="w-full px-3 py-1 rounded bg-white"
                 />
                     {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email.message}</p>}
                 </div>
@@ -123,7 +123,7 @@ export default function Form() {
                       required: "Password harus 8+ karakter, mengandung angka & simbol",
                       validate: validatePassword,
                     })}
-                    className="w-full border px-3 py-1 rounded bg-white border-0"
+                    className="w-full px-3 py-1 rounded bg-white"
                 />
                     {errors.password && <p className="text-sm text-red-600 mt-1">{errors.password.message}</p>}
                 </div>
@@ -140,10 +140,22 @@ export default function Form() {
                     min: { value: 18, message: "Peserta harus berusia antara 18 dan 100 tahun" },
                     max: { value: 100, message: "Peserta harus berusia antara 18 dan 100 tahun" },
                      })}
-                    className="w-full border px-3 py-1 rounded bg-white border-0"
+                    className="w-full px-3 py-1 rounded bg-white"
                     />
                     {errors.age && <p className="text-sm text-red-600 mt-1">{errors.age.message}</p>}
                 </div>
+
+                <div>
+                    <label htmlFor="websiteUrl" className="block mb-1">Situs Web Pribadi (opsional)</label>
+                    <input
+                        id="websiteUrl"
+                        type="text"
+                        placeholder="https://laman.com"
+                        {...register("websiteUrl", { validate: validateUrl })}
+                        className="w-full px-3 py-2 rounded bg-white"
+                    />
+                    {errors.websiteUrl && <p className="text-sm text-red-600 mt-1">{errors.websiteUrl.message}</p>}
+                    </div>
 
                 {/* Ticket Type */}
                 <div>
@@ -151,7 +163,7 @@ export default function Form() {
                     <select
                     id="ticketType"
                     {...register("ticketType", { required: "Anda harus memilih tipe tiket" })}
-                    className="w-full border px-3 py-1 rounded bg-white border-0"
+                    className="w-full px-3 py-1 rounded bg-white"
                     defaultValue=""
                     >
                     <option value="">-- Pilih Tipe Tiket --</option>
