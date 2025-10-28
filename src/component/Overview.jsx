@@ -1,5 +1,3 @@
-// src/component/Overview.jsx
-import Card from './ui/Card';
 import Form from './ui/Form';
 
 export default function Overview(){
